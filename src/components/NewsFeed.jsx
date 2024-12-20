@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+
 function NewsFeed() {
   const [newsFeed, setNewsFeed] = useState();
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const API_KEY = "ea4b68da0b89460ca40f05d2aa651765";
   const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${API_KEY}`;
   const results = async (url) => {
@@ -9,6 +11,11 @@ function NewsFeed() {
     console.log(data);
     setNewsFeed(data.articles);
     console.log(data.articles);
+    //alert("welcome");
+  };
+  //button
+  const handleClick = () => {
+    setIsButtonClicked(!isButtonClicked);
   };
   useEffect(() => {
     results(url);
@@ -25,12 +32,25 @@ function NewsFeed() {
                 <img className="image" alt={i.url} src={i.urlToImage} />
 
                 <div className="content">
-                  <h3>Author:{i.author}</h3>
-                  <p>content: {i.content}</p>
-                  <p>Manufacturer: {i.description}</p>
-                  <p>Cost in credits: {i.title}</p>
+                  <div className="author">
+                    <h3>Author: {i.author}</h3>
+                    <p>{i.title}</p>
+                  </div>
+                  {/* <p>{i.content}</p>
+                  <p>{i.description}</p> */}
+
                   <div className="publisher">
-                    <p style={{ color: "white" }}>{i.publishedAt}</p>
+                    <p style={{ color: "white" }}>
+                      Published At: {i.publishedAt}
+                    </p>
+                    <button
+                      //   value={newsFeed}
+                      onClick={() => handleClick}
+                      className="openPage"
+                    >
+                      {isButtonClicked ? "button clicked" : "click me"}. . .
+                      {isButtonClicked && <p>works</p>}
+                    </button>
                   </div>
                 </div>
               </div>

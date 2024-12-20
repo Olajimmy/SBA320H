@@ -17,17 +17,38 @@
   height: 500px;
 }
 .mainBox {
-  border: 1px white solid;
-  border-radius: 10px;
+  border: 0px white solid;
 }
 .box {
   border: 1px solid white;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  background-color: whitesmoke;
 }
 .content {
   border: 1px solid white;
 }
 .publisher {
   border: 1px solid white;
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  /* position: absolute; */
+}
+
+.author {
+  border: 1px solid white;
+}
+.openPage {
+  background-color: red;
+}
+.openPage:hover {
+  background-color: green;
+}
+.newsLink {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.newsHeader {
+  border: 1px solid white;
+  border-radius: 5px;
 }
