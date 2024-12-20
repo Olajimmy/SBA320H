@@ -1,0 +1,33 @@
+#root {
+  max-width: 1280px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.image {
+  width: 700px;
+  height: 500px;
+}
+.mainBox {
+  border: 1px white solid;
+  border-radius: 10px;
+}
+.box {
+  border: 1px solid white;
+  margin-bottom: 10px;
+}
+.content {
+  border: 1px solid white;
+}
+.publisher {
+  border: 1px solid white;
+  position: absolute;
+}
