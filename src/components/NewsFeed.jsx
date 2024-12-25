@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 function NewsFeed() {
   const [newsFeed, setNewsFeed] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0); // To track current article
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
+
   const API_KEY = "ea4b68da0b89460ca40f05d2aa651765";
-  const url = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${API_KEY}`;
+  const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`; // Replace with your own API key
 
   const results = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data.articles);
     setNewsFeed(data.articles);
   };
 
@@ -17,11 +19,6 @@ function NewsFeed() {
   useEffect(() => {
     results(url);
   }, []);
-
-  // Handle button click (not really used in carousel but left as is)
-  const handleClick = () => {
-    setIsButtonClicked(!isButtonClicked);
-  };
 
   // Function to navigate to the next article
   const goNext = () => {
@@ -37,6 +34,9 @@ function NewsFeed() {
 
   return (
     <div>
+      <div className="home">
+        <Link to="/">Home</Link>
+      </div>
       <h1>Welcome to the latest news feed</h1>
       {newsFeed.length > 0 ? (
         <div className="carousel-container">
@@ -52,15 +52,13 @@ function NewsFeed() {
                 <div className="author">
                   <h3>Author: {newsFeed[currentIndex]?.author}</h3>
                   <p>{newsFeed[currentIndex]?.title}</p>
+                  <p>{newsFeed[currentIndex].content} </p>
                 </div>
 
                 <div className="publisher">
                   <p style={{ color: "white" }}>
                     Published At: {newsFeed[currentIndex]?.publishedAt}
                   </p>
-                  <button onClick={handleClick} className="openPage">
-                    {isButtonClicked ? "Button clicked" : "Click me"}...
-                  </button>
                 </div>
               </div>
             </div>
