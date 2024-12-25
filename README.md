@@ -17,4 +17,7 @@ used the news API to get the latest news and display it
 used react-router to connect the pages together
 used Link to configure it
 used useState and useRef
-diployed app on git hub pages
+diployed app on git hub pages and netlify.
+site appears to be deployed but not showing up after the first click on netlify. it would not show at all on git poages.
+App works perfectly on VS code.
+created a carousel to display the fetched news
