@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NewPage from "./pages/NewsPages";
+import NewPage from "./components/NewsPages";
 import NewsFeed from "./components/NewsFeed";
 import "./App.css";
 import { Route, Routes } from "react-router";
